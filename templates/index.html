@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>groupie tracker</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>Groupie-Tracker</h1>
+    <div class="container">
+      {{range .}}
+      <div class="content">
+        <a href="/artist?id={{.ID}}">
+          <img src="{{.Image}}" width="100" height="100" id="img" />
+          <p>{{.Name}}</p>
+          <p class="mem-title">members</p>
+          {{range .Members}}
+          <p class="member-item">{{.}}</p>
+          {{end}}
+        </a>
+      </div>
+      {{end}}
+    </div>
+  </body>
+</html>

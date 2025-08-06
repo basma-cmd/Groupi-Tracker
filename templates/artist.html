@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>groupie tracker - {{.Artist.Name}}</title>
+    <link rel="stylesheet" href="/static/artist.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{{.Artist.Name}}</h1>
+    </header>
+    <div class="container">
+      <img src="{{.Artist.Image}}" alt="{{.Artist.Name}} image" />
+      <div class="details">
+        <p>
+          <strong>Members:</strong>
+          {{range $index, $member := .Artist.Members}} {{if $index}}, {{end}}{{
+          $member }} {{end}}
+        </p>
+        <p><strong>Creation Date:</strong> {{.Artist.CreationDate}}</p>
+        <p><strong>First Album:</strong> {{.Artist.FirstAlbum}}</p>
+
+        <h2>Locations</h2>
+        <p>
+          {{range $index, $loc := .Locations.Locations}} {{if $index}},
+          {{end}}{{ $loc }} {{end}}
+        </p>
+        <p><strong>Date (Locations):</strong> {{.Locations.Date}}</p>
+
+        <h2>Dates</h2>
+        <ul>
+          {{range .Dates.Dates}}
+          <li>{{.}}</li>
+          {{end}}
+        </ul>
+
+        <h2>Concerts by Location & Date</h2>
+        {{if .Relations.DatesLocations}}
+        <ul>
+          {{range $location, $dates := .Relations.DatesLocations}}
+          <li>
+            <strong>{{$location}}</strong>
+            <ul>
+              {{range $dates}}
+              <li>{{.}}</li>
+              {{end}}
+            </ul>
+          </li>
+          {{end}}
+        </ul>
+        {{else}}
+        <p>No concert data available.</p>
+        {{end}}
+
+        <a href="/" id="link">Back to list</a>
+      </div>
+    </div>
+  </body>
+</html>
