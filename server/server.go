@@ -7,12 +7,13 @@ import (
 	"main/routes"
 	"main/structs"
 	"net/http"
+	//"net/url"
+	"os"
 )
 
 var Artists []structs.Artist
 
 func Server() {
-	
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		err := helpers.LoadDataFromAPI(&Artists)
 		if err != nil {
@@ -30,15 +31,19 @@ func Server() {
 	})
 
 	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
-		filePath := r.URL.Path[7:]
-		fullPath := "static/" + filePath
-		http.ServeFile(w, r, fullPath)
+		info, err := os.Stat(r.URL.Path[1:])
+		if err != nil || info.IsDir() {
+			routes.RenderErrorPage(w, err, http.StatusForbidden)
+			return
+		}
+		http.ServeFile(w, r, r.URL.Path[1:])
 	})
 
 	errh := helpers.CheckTemplates()
 	if errh != nil {
 		return
 	}
+	helpers.LaunchBrowser("http://localhost:8080")
 
 	fmt.Println("Server running at http://localhost:8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {

@@ -2,67 +2,68 @@
 
 ## 📌 Description
 
-**Groupie Tracker** est un projet web en Go qui consiste à consommer une API externe contenant des informations sur des groupes et artistes musicaux (noms, membres, dates, lieux de concerts, etc.) et à afficher ces données sur un site web convivial et dynamique.
+**Groupie Tracker** is a web project written in Go that consumes an external API containing information about music bands and artists (names, members, concert dates and locations, etc.) and displays this data through a dynamic and user-friendly website.
 
-Le but est de manipuler les données reçues, de les organiser et de les présenter sous forme de visualisations variées (cartes, tableaux, listes...) via une interface utilisateur claire et responsive.
-
----
-
-## 🧠 Objectifs
-
-- Consommer et manipuler une API RESTful contenant :
-  - **Artists** : nom(s), image, date de création, premier album, membres.
-  - **Locations** : villes où les concerts ont eu lieu ou auront lieu.
-  - **Dates** : dates des concerts passés ou à venir.
-  - **Relation** : relie les artistes avec leurs concerts (dates + lieux).
-
-- Créer un **site web en Go** (backend) qui :
-  - Affiche les informations des artistes.
-  - Permet d'interagir avec le serveur via des événements (client → serveur).
-  - Gère proprement les erreurs et ne plante jamais.
+The goal is to retrieve, manipulate, and organize the received data, then present it using various visualizations (maps, tables, lists…) within a clean and responsive user interface.
 
 ---
 
-## 🛠️ Fonctionnalités
+## 🧠 Objectives
 
-- 🔍 Recherche par nom d'artiste ou membre.
-- 📅 Visualisation des dates de concerts.
-- 🌍 Carte ou liste des lieux de concerts.
-- 👥 Détails par artiste (biographie, albums, membres…).
-- 🔁 Interactions en temps réel avec le serveur via requêtes HTTP.
+- Consume and manipulate a RESTful API providing:
+  - **Artists**: name(s), image, creation date, first album, members.
+  - **Locations**: cities where concerts have taken or will take place.
+  - **Dates**: dates of past or upcoming concerts.
+  - **Relation**: links artists to their concerts (locations + dates).
 
----
-
-## 🧪 Tests
-
-- Des fichiers de test unitaires sont recommandés.
-- Utilisation des tests Go standards (`go test`).
+- Build a **Go-based website** (backend) that:
+  - Displays artist information.
+  - Supports interaction with the server through client-side events.
+  - Handles errors gracefully and never crashes.
 
 ---
 
-## ✅ Instructions
+## 🛠️ Features
 
-- Le **backend doit être écrit en Go** uniquement.
-- Le site doit être **robuste** (pas de crash).
-- Toutes les erreurs doivent être **gérées proprement**.
-- Suivre les **bonnes pratiques** de développement.
-- **Aucune bibliothèque externe** autorisée — uniquement les packages standards de Go.
+- 🔍 Search by artist name or member.
+- 📅 View concert dates.
+- 🌍 Map or list of concert locations.
+- 👥 Detailed artist view (biography, albums, members…).
+- 🔁 Real-time interactions with the server via HTTP requests.
 
 ---
 
-## 🚀 Lancer le projet
+## 🧪 Testing
 
-### Prérequis
+- Unit test files are recommended.
+- Use standard Go tests (`go test`).
+
+---
+
+## ✅ Requirements
+
+- The **backend must be written in Go** only.
+- The site must be **robust** (no crashes).
+- All errors must be **handled properly**.
+- Follow **best development practices**.
+- **No external libraries allowed** — only Go standard packages.
+
+---
+
+## 🚀 Running the Project
+
+### Prerequisites
 
 - [Go](https://golang.org/dl/)
-- Un navigateur web
+- A web browser
 
-### Commandes
+### Commands
 
 ```bash
-# Cloner le projet
+# Clone the project
 git clone https://your-repo-url/groupie-tracker.git
 cd groupie-tracker
 
-# Lancer le serveur
+# Run the server
 go run main.go
+```
